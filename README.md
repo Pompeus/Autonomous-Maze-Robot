@@ -132,3 +132,12 @@ The implementation of these preprocessing techniques is often carried out throug
 <div style = "display: inline_bloc"></br>
   <img align = "center" alt = "ArUco" src = "Images/ArUco.jpg" width = 600/>
 </div></br>
+
+### •  Implementation
+
+With the created code, the significant result obtained becomes evident, where the red line traces the robot's path through the maze in a clear and precise manner, as mentioned earlier. This visual representation of the trajectory, captured in real-time, attests to the success of using the ArUco marker to record the robot's journey. The success is twofold, as not only did the marker-based tracking system function effectively, but the robot's performance was also remarkable, successfully completing the course without causing damage to the maze walls. This achievement illustrates the effectiveness of the combination of tracking and navigation technologies used in this specific project.
+
+
+<div style = "display: inline_bloc"></br>
+  <img align = "center" alt = "ArUco" src = "Images/Aruco Path.jpg" width = 800/>
+</div></br>
