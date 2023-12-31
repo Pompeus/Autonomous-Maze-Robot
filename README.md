@@ -139,5 +139,101 @@ With the created code, the significant result obtained becomes evident, where th
 
 
 <div style = "display: inline_bloc"></br>
-  <img align = "center" alt = "ArUco" src = "Images/Aruco Path.jpg" width = 800/>
+  <img align = "center" alt = "ArUco Path" src = "Images/Aruco Path.jpg" width = 800/>
 </div></br>
+
+## Simulation 
+The continuation of the autonomous robotics project focuses on the simulation of virtual environments through 3D reconstruction. The first phase of the project involved the use of a mobile robot equipped with ultrasonic sensors, aimed at navigating a maze in a controlled physical environment. In this initial phase, ArUco markers were employed to record and map the path taken by the robot, providing crucial data for understanding the environment.
+
+In this second phase, the goal is to transcend the physical representation of the maze to a virtual version through the 3D reconstruction of the environment. This will involve the use of computer vision techniques and image processing to capture data from the physical environment and transform it into three-dimensional models. This approach not only aims to create a visual representation of the maze but also provides an accurate digital simulation that will enable the analysis, enhancement, and testing of robot navigation algorithms in a virtual environment faithful to reality.
+
+By combining concepts of computer vision, autonomous robotics, and 3D reconstruction, this work aims to contribute to the advancement of autonomous navigation strategies in unknown environments, providing a solid foundation to enhance the ability of mobile robots to deal with complex and dynamic scenarios. This report describes the process, challenges encountered, methods used, and results achieved in the implementation of this project.
+
+A capturing and simulating mazes with virtual robots is a complex task that requires the use of specific tools and techniques. Here, we present a method to accomplish this task using the tools Meshroom and CoppeliaSim.
+
+The first step involves capturing the physical maze. To do this, we use the Meshroom tool, a 3D model reconstruction software from images. Meshroom captures the outline of the maze and reconstructs the model using the AliceVision framework. The software can deliver high-quality models with textures close to reality.
+
+The maze capture process is as follows:
+
+• The physical maze is photographed from different angles.
+
+• The images are processed by Meshroom, which generates a 3D model of the maze.
+
+• The 3D model is refined to improve its quality.
+
+The second step involves creating the virtual robot. For this, we use the CoppeliaSim tool, a robot simulation software. CoppeliaSim allows the creation of 3D robots in a virtual environment. The software enables the reconstruction and manipulation of simulations, applying the robot model in 3D modeling and the scenario captured with Meshroom for simulation and application.
+
+The creation process of the virtual robot is as follows:
+
+• The 3D model of the robot is created in a 3D modeling software.
+
+• The 3D model of the robot is imported into CoppeliaSim.
+
+• The motion and control parameters of the robot are configured.
+
+The third step involves simulating the robot in the maze. To do this, we import the model of the virtual robot created in CoppeliaSim into the scenario captured with Meshroom. Then, we configure the robot simulation by defining the motion and control parameters.
+
+The process of simulating the robot in the maze is as follows:
+
+• The model of the virtual robot is imported into the maze scenario.
+
+• The motion and control parameters of the robot are configured.
+
+• The robot simulation is initiated.
+
+The proposed method can be improved in various ways. For example, the quality of the 3D model of the maze can be enhanced by capturing more images or using more advanced image processing techniques. Additionally, the accuracy of the robot simulation can be improved by adjusting the motion and control parameters.
+
+A accomplishment of three-dimensional reconstruction of complex environments, such as the maze we used in our work, using photogrammetric techniques presented significant challenges. The Meshroom software was employed to reconstruct the maze from 291 photos captured from various angles, indicating the origin of each photo in the 3D reconstruction process. However, obstacles were encountered, resulting in a reconstruction considered unsatisfactory.
+
+
+<div style = "display: inline_bloc"></br>
+  <img align = "center" alt = "Labyrinth cloud point" src = "Images/Motion of the labyrinth.jpg" width = 600/>
+</div></br>
+
+To generate the depth map, a downscale of 16 was applied to optimize the manipulation of depth information. However, smaller downscales caused errors in the process due to high computational demand, especially on the machine's processor. This high computational cost limited the software's ability to efficiently construct the maze. In the meshing stage, crucial for the formation of the 3D mesh, 4,008,000 maximum points and a texture side of 4096 were used, while keeping the other parameters at the software's defaults. Despite these configurations, the complexity of the maze prevented Meshroom from completely overcoming processing difficulties, resulting in a reconstruction below expectations.
+
+A suggested approach to improve 3D reconstruction would be to preprocess the images before importing them into Meshroom. Despite the software performing white balance, reducing the contrast between maze structures and the ground, the quality of captured information can be improved. Additionally, creating more depth between maze components can be achieved through image processing techniques.
+
+
+<div style = "display: inline_bloc"></br>
+  <img align = "center" alt = "Labyrinth Cloud Point" src = "Images/Motion of the labyrinth2.jpg" width = 310/>
+  <img align = "center" alt = "Real labyrinth" src = "Images/Real Labyrinth.jpg" width = 300/>
+</div></br>
+
+Given the size of the maze, it is advisable to consider capturing a larger number of photos to achieve a more comprehensive reconstruction. Obtaining more perspectives of the environment can provide the software with additional information, contributing to a more detailed and accurate reconstruction.
+
+It is observed that most of the maze walls were not reconstructed properly, showing various structural flaws and preserving only part of the original path configuration.
+In response to the previously identified issue, it was essential to make adjustments to the three-dimensional representation of the maze using Blender software.
+
+<div style = "display: inline_bloc"></br>
+  <img align = "center" alt = "Coppella Reconstruction" src = "Images/Coppella Reconstruction.jpg" width = 310/>
+  <img align = "center" alt = "Blender" src = "Images/Blender.jpg" width = 330/>
+</div></br>
+
+With the aim of comprehensively simulating the project in a virtual manner, we developed a program to represent the path traveled by the robot using a black line. This allows for a reassessment of the route taken in the physical environment, and upon making a comparison, we identified some discrepancies in its path. These variations are attributed to the necessary adaptations to transpose the physical scenario to the virtual one. It is relevant to note that the robot in CoppeliaSim is equipped with 16 ultrasonic sensors, a significant contrast compared to the previous robot that had only 3 sensors.
+
+<div style = "display: inline_bloc"></br>
+  <img align = "center" alt = "Coppellia Robot" src = "Images/CopelliaSim - Robot- Labyrinth.jpg" width = 310/>
+  <img align = "center" alt = "Path on Copellia" src = "Images/Coppellia Path.jpg" width = 330/>
+</div></br>
+
+A 3D reconstruction of a maze using Meshroom presented considerable challenges, mainly due to computational costs and the complexity of the environment. Strategies such as image preprocessing and acquiring more visual data can be implemented to optimize future reconstruction attempts. The 3D model of the maze generated by Meshroom was unsatisfactory due to the flaws on the maze walls, which appeared smaller or did not exist in the model. This is partly due to the limitations of the hardware we used to generate the 3D model.
+
+However, to achieve a satisfactory result, we could try using better hardware, which would help overcome the computational limitations we faced. Another approach could be to use different software for compiling images into a 3D model, such as Polycam. We made some attempts with the free version but didn't have the necessary number of photos to generate a minimally recognizable 3D model. However, with the paid version, we might achieve better results; whether it would be of higher quality than what was generated in Meshroom remains uncertain.
+
+In addition to the challenges encountered during the 3D reconstruction phase, using CoppeliaSim for simulation proved to be a challenging process. As mentioned earlier, the lack of familiarity with the software resulted in additional complexity in performing tasks that could initially be straightforward, such as configuring the robot's functionalities. Considering this experience, we identified opportunities for subsequent improvements, including a more precise reconstruction of the simulated environment and the use of the real robot model, combined with programming that closely resembles reality. This approach would enable the creation of a more faithful and accurate "Digital Twin".
+
+## License
+This project was developed for the Autonomous Robotics course at the Pontifícia Universidade Católica do Paraná (PUCPR). It has no commercial intention, serving only for study and learning purposes about autonomous robotics, computer vision, and simulations.
+
+## Project Team 
+
+• ANDRE HENRIQUE GONÇALVES DA SILVA 
+
+• MATHEUS POMPEU DE CARVALHO 
+
+• NATHAN KOREVAR STACHIO 
+
+• NICOLAS HUPFELD 
+
+• TATSUYA OZAWA 
