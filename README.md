@@ -2,11 +2,15 @@
 
 This repository refers to a project involving a robot navigating a maze as quickly as possible without colliding during the course.
 
-• Reactive behavior: The robot has motor control for obstacle avoidance using an ultrasonic sensor model in a mapped environment.
+<div style = "display: inline_bloc">
+  <img align = "center" alt = "Labyrinth" src = "Images/Labyrinth.jpg" width = 600/>
+  </div></br>
 
-• Braitenberg vehicle-type reactive behavior: The robot either follows or moves away from one (or more) light sources while also avoiding obstacles.
+• **Reactive behavior:** The robot has motor control for obstacle avoidance using an ultrasonic sensor model in a mapped environment.
 
-• Reactive maze-solving: The robot must efficiently navigate a maze by avoiding obstacles and minimizing time.
+• **Braitenberg vehicle-type reactive behavior:** The robot either follows or moves away from one (or more) light sources while also avoiding obstacles.
+
+• **Reactive maze-solving:** The robot must efficiently navigate a maze by avoiding obstacles and minimizing time.
   
 The robot assembly primarily utilized components from the LEGO Kit 9790 (Mindstorms for Schools), consisting of 726 pieces.
 A detailed list of kit pieces used in the robot's development.
@@ -74,6 +78,57 @@ in Figure 2. For the connection of the photoresistors, 10kOhm resistors were use
 |Ultrasonic sensor HC-SR04| 3|
 |Spherical Transfer RO53XX15XX, REXroth,7210|1|
 
+O assembled prototype, upon reviewing the list of mechanical components that were presented, seems large; however, the model ended up being compact, resulting in ease of navigation through the maze. The prototype yielded positive results; in the initial tests, it experienced minor collisions with the maze walls. However, after adjusting its speed and ultrasonic sensors, the robot navigated the course with agility, with four standout performances in the tests:
+
+• **The first:** The robot tended to lean to the left, causing its side to collide with the wall. By correcting the lateral sensors, it was possible to maintain a minimum distance for the robot to adjust its direction and move straight within the maze.
+
+• **The second:** The robot reached the halfway point but collided due to its speed, making it unable to navigate the tighter turns of the maze. Since it was moving too quickly, it was necessary to sacrifice some speed to successfully navigate the tight corners.
+
+• **The third:** The robot completed the entire course, entering various dead-end sections of the maze and successfully navigating out without any issues.
+
+• **The fourth:** By adjusting minor settings in the sensor and software, the robot managed to complete the entire course in around 1:08 minutes without apparent problems.
 
 
+<div style = "display: inline_bloc"></br>
+  <img align = "center" alt = "Robot1" src = "Images/Robot1.jpg" width = 200/>
+  <img align = "center" alt = "Robot2" src = "Images/Robot2.jpg" width = 200/>
+  <img align = "center" alt = "Robot3" src = "Images/Robot3.jpg" width = 200/>
+  <img align = "center" alt = "Robot4" src = "Images/Robot4.jpg" width = 200/>
+  <img align = "center" alt = "Robot5" src = "Images/Robot5.jpg" width = 200/>
+  <img align = "center" alt = "Robot6" src = "Images/Robot6.jpg" width = 200/>
+  <img align = "center" alt = "Robot7" src = "Images/Robot7.jpg" width = 200/>
+  <img align = "center" alt = "Robot8" src = "Images/Robot8.jpg" width = 200/>
+  </div></br>
 
+
+## Computer Vision Path Tracking System with ArUco Markers
+### • Explanation of the purpose of ArUco markers
+ArUco markers are widely used in computer vision and object tracking. Their main purpose is to provide easily identifiable reference points in environments that can be used to track the position and orientation of objects, such as robots, cameras, or any object equipped with ArUco markers. The markers are printed on sheets of paper, cardboard, or other materials and contain encoded information that makes them unique. Vision systems can detect, identify, and track these markers in real-time.
+
+To generate the markers, it is necessary to use a code dictionary (e.g., DICT_4X4_50) that specifies the format of the markers and their ID, where "4x4" indicates the marker's size, which can also be 5x5 or 6x6, and "50" indicates the total number of distinct markers available in the dictionary. Marker generation is performed using computer vision libraries such as OpenCV. The software creates the markers and prints them for use in practical applications.
+
+Marker identification occurs when a camera captures an image of the environment and detects the markers in the frame. Through image processing techniques, the software identifies the position and orientation of each marker and uses this information to perform tasks such as mapping, localization, and navigation.
+
+
+### • Description of the Environment Configuration:
+
+The configuration of the environment must be carefully planned to allow for the efficient detection of ArUco markers. The camera should be positioned to have a clear view of the markers. This involves choosing the height and angle of the camera, as well as defining the camera's field of view (FOV). The markers should be well distributed in the environment to ensure they are visible from various positions.
+
+### • Usage/Implementation of Image Preprocessing Techniques:
+
+To enhance the detection and identification of ArUco markers, it is common to apply image preprocessing techniques. This may include the application of filters to reduce noise in the image, segmentation to separate the markers from the background, and binarization to make the markers more visible. Lens distortion correction techniques may also be necessary depending on the camera used. Some of the techniques that would be interesting to work on in this context include:
+
+• **Filtering:** A common preprocessing step is filtering, which aims to smooth the image and reduce noise, making the markers more visible. Applying filters such as the mean filter, Gaussian filter, or median filter helps eliminate random noise and improve the quality of the captured image.
+
+• **Binarization:** Binarization is another relevant technique used to convert the image into a black-and-white representation, where the markers appear as white regions on a black background. This simplifies the detection of edges and contours of the markers, facilitating subsequent identification.
+
+• **Segmentation:** Segmentation is useful for isolating the markers from the rest of the image, separating them into regions or objects of interest. This technique contributes to more precise detection, allowing the algorithm to focus exclusively on the markers, avoiding interference from other elements in the scene.
+
+• **Distortion Correction:** In cases where the camera is subject to distortions, such as lens distortion, it is essential to correct them during preprocessing. Distortion can significantly affect the accuracy of marker detection. Therefore, distortion correction, usually based on camera calibration parameters, is an important step to ensure image fidelity.
+
+The implementation of these preprocessing techniques is often carried out through image processing libraries such as OpenCV. The order and selection of techniques to be used may vary depending on the specific conditions of the camera, environment, and markers. Therefore, the choice and configuration of preprocessing techniques should be adjusted according to the particular scenario and may require tuning and experimentation to optimize the quality of ArUco marker detection.
+
+
+<div style = "display: inline_bloc"></br>
+  <img align = "center" alt = "ArUco" src = "Images/ArUco.jpg" width = 600/>
+</div></br>
