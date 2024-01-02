@@ -59,8 +59,7 @@ to flee from light sources and avoid obstacles, with the assistance of ultrasoni
 The entire system was powered by a rechargeable 9V battery. A 170-point Protoboard was directly connected to the Arduino's 5V, powering all components except for the motors,
 which received direct power from the battery. A toggle switch was incorporated to allow selective activation of the circuit when necessary. The motors were connected to an
 H-bridge (L298N) that, through electronic switching, allows variation in the motor's rotation states. This represents a more efficient approach compared to mechanical 
-switching and provides additional protection against overcurrent. A schematic of the circuit used in the robot was developed on the Tinkercad platform and can be viewed 
-in Figure 2. For the connection of the photoresistors, 10kOhm resistors were used.
+switching and provides additional protection against overcurrent. 
 
 ### Electrical Components Table
 |  **Components** | **Quantity**| 
